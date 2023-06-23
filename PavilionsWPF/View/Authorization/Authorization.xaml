@@ -1,0 +1,18 @@
+﻿<Page x:Class="PavilionsWPF.View.Authorization.Authorization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PavilionsWPF.View.Authorization"
+      mc:Ignorable="d" 
+Height="450" Width="800"
+      Title="Authorization" Background="White">
+
+    <Grid>
+        <TextBox Name="Login" FontSize="15" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Foreground="Purple" Margin="59,143,400,255"/>
+        <PasswordBox Name="Password" FontSize="15" Margin="59,219,400,187" Style="{DynamicResource MaterialDesignFloatingHintRevealPasswordBox}" Foreground="Purple"/>
+        <TextBlock Margin="31,59,537,323" FontFamily="Arial Black" FontSize="25" Style="{DynamicResource MaterialDesignBody1TextBlock}" Foreground="Purple" >Авторизация</TextBlock>
+        <Button Name="GoMainPg" FontSize="10" Margin="630,387,46,31" Style="{DynamicResource MaterialDesignFlatButton}" Content="Далее" Click="GoMainPg_Click"></Button>
+        <Button Name="GoBack" Click="GoBack_Click" Margin="608,77,46,341" Content="Домой"></Button>
+    </Grid>
+</Page>

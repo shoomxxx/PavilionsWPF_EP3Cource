@@ -1,0 +1,68 @@
+﻿<Page x:Class="PavilionsWPF.View.ShoppingMall.Pavilions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PavilionsWPF.View.ShoppingMall"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Pavilions">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <DockPanel>
+            <StackPanel Grid.Row="1" Orientation="Vertical" Width="405" Height="192">
+                <Button Name="GoSMList" Content="SMList" Click="GoSMList_Click"></Button>
+                <Button Name="newList" Content="NewList"></Button>
+                <Button Name="insert" Content="Добавить"></Button>
+                <TextBox Grid.Row="1" Name="Search" Style="{DynamicResource MaterialDesignFilledTextBox}" Foreground="Purple" Width="300" Margin="7" Height="46"/>
+                <ComboBox Name="SessionFilter" Style="{DynamicResource MaterialDesignComboBox}"  Foreground="Purple">
+                    <ComboBoxItem Foreground="Purple" >
+                        По статусу
+                    </ComboBoxItem>
+                    <ComboBoxItem Foreground="Purple" >
+                        По этажу
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <DataGrid x:Name="myDataGrid" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*" Height="900" Width="1443">
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridRow">
+
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Статус ТЦ" Binding="{Binding shops_centers.status_id}"/>
+                    <DataGridTextColumn Header="Название ТЦ" Binding="{Binding shops_centers.title}"/>
+                    <DataGridTextColumn Header="Этаж" Binding="{Binding floor}"/>
+                    <DataGridTextColumn Header="Номер павильона" Binding="{Binding num_pavilion}"/>
+                    <DataGridTextColumn Header="Площадь" Binding="{Binding area}"/>
+                    <DataGridTextColumn Header="Статус павильона" Binding="{Binding status}"/>
+                    <DataGridTextColumn Header="КДС Павильона" Binding="{Binding value_added_factor}"/>
+                    <DataGridTextColumn Header="Стоимость кв. м." Binding="{Binding cost}"/>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Action" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="updateBtn" Content="Update" />
+                                    <Button x:Name="deleteBtn" Content="Delete" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Page>
